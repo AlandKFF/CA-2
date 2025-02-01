@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Architecture Chapter 2 Study Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 20px;
+    }
+    .question-list {
+      margin: 15px 0;
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .question-group {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    li {
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    .question {
+      font-weight: bold;
+    }
+    .answer {
+      margin-top: 5px;
+      padding: 10px;
+      border-left: 3px solid #3498db;
+      background-color: #eef6fc;
+      display: none;
+      white-space: pre-wrap; /* Preserve whitespace formatting */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chapter 2 Study Guide - Computer Architecture</h1>
+    
+    <div class="question-group">
+      <h2>Comprehensive Questions</h2>
+      <ol class="question-list">
+        <li>
+          <div class="question">1. What is the clock Cycle?</div>
+          <div class="answer">(Hz) the amount of time between 2 pulses of an oscillator. Uses to determine CPU speed.</div>
+        </li>
+        <li>
+          <div class="question">2. What is pipelining?</div>
+          <div class="answer">Refers to a technique that is used in modern CPUs to improve instruction execution speed by overlapping multiple instruction phases. Instead of executing one instruction from start to end, pipelining divides the instruction cycle into different stages, letting the CPU execute a 2nd instruction before the 1st one is completed.</div>
+        </li>
+        <li>
+          <div class="question">3. What is Pipelining Hazard?</div>
+          <div class="answer">When some instructions are executed in pipelining, they sometimes stall the pipeline or flush it totally.</div>
+        </li>
+        <li>
+          <div class="question">4. Define those (Latency, Throughput, Clock Cycle, Processor Cycle, CPI)</div>
+          <div class="answer">• Latency: TIME for an instruction to be completed  
+• Throughput: (completed instruction)/S  
+• Processor Cycle: time required to complete a pipe stage  
+• CPI: clock cycle per instruction</div>
+        </li>
+        <li>
+          <div class="question">5. What are the pipe stages? count and define each</div>
+          <div class="answer">Stages (in reverse order in the provided answer):  
+• 4) Fetch: Read the instruction in memory  
+• 3) Decode: Decode, fetch source command  
+• 2) Execute: Perform operation  
+• 1) Write: Store the result in the destination location</div>
+        </li>
+        <li>
+          <div class="question">6. What are the Advantages/Disadvantages of Pipelining?</div>
+          <div class="answer">Advantages:  
+1. Increases throughput  
+2. Reduces cycle time  
+3. Makes system reliable  
+4. Performs multiple operations simultaneously  
+5. Ideal for repetitive data processing  
+
+Disadvantages:  
+1. Higher latency – increases delay for individual instructions  
+2. Complex and costly</div>
+        </li>
+        <li>
+          <div class="question">7. How is capacity expressed for Internal/External memory?</div>
+          <div class="answer">• Internal: Typically expressed in terms of bytes or words  
+• External: Typically expressed in terms of bytes</div>
+        </li>
+        <li>
+          <div class="question">8. What Unit of transfer equals to for Internal memory?</div>
+          <div class="answer">Unit of transfer: Number of Electrical-Lines into &amp; out of memory module (e.g., 64bit, 128bit, etc.)</div>
+        </li>
+        <li>
+          <div class="question">9. What are the Access Methods? count and explain each.</div>
+          <div class="answer">1) Sequential access:  
+   • Example: Magnetic tape storage  
+   • Data accessed in a fixed, linear sequence.  
+   • Slower as intermediate records must be checked before reaching the target.
+
+2) Direct access:  
+   • Example: HDD  
+   • Data can be retrieved by going directly to its physical location.  
+   • Faster, yet involves shared read-write mechanisms.
+
+3) Random access:  
+   • Example: RAM, Cache  
+   • Any memory location can be accessed instantly and independently of previous accesses.
+
+4) Associative Access:  
+   • Example: Cache in CPU  
+   • Data is retrieved based on content matching rather than addressing location, allowing parallel searches for faster retrieval.</div>
+        </li>
+        <li>
+          <div class="question">10. What are the 3 key performance parameters of memory, and how do they affect memory performance?</div>
+          <div class="answer">1) Access time (latency):  
+   • Time required to complete a read or write operation after a memory address is provided.  
+   • For RAM, it’s the time from a request to data availability.  
+   • For non-RAM, it’s the time needed to position the read/write mechanism.
+
+2) Memory cycle time:  
+   • Time for one memory access plus the delay before another access can begin.  
+   • Includes delays such as signal stabilization and data regeneration (affecting system bus timing).
+
+3) Transfer rate:  
+   • The speed at which data moves into/out of a memory unit.  
+   • For RAM: approximately 1/Cycle time.  
+   • For non-RAM: Tn = Ta + n/R (where Ta is access time and R is the rate).</div>
+        </li>
+        <li>
+          <div class="question">11. What is RAM, and what are the differences between SRAM and DRAM?</div>
+          <div class="answer">RAM is a type of volatile memory, meaning the data is lost when the computer is turned off. It is measured in MB and GB and is essential for storing temporary data for fast access by the CPU.
+
+1) SRAM:  
+   • Used as cache memory (L1, L2, L3) in the CPU.  
+   • Faster and more reliable, but expensive and consumes more power.
+
+2) DRAM:  
+   • Used as main memory (RAM) in PCs.  
+   • Cheaper and denser, but slower due to the need for constant refreshing to retain data.</div>
+        </li>
+        <li>
+          <div class="question">12. What is Read-Only Memory (ROM), and how does it differ from RAM?</div>
+          <div class="answer">ROM is a type of non-volatile memory, meaning the data is retained even after power is turned off. Unlike RAM (which is volatile and can be both read and written), ROM can typically only be read under normal use.  
+• It stores permanent data and is used for firmware and system boot processing (e.g., BIOS).  
+• It does not require power to maintain the stored information.</div>
+        </li>
+        <li>
+          <div class="question">13. What are the different types of ROM, and how do they function?</div>
+          <div class="answer">1) PROM (Programmable ROM):  
+   • Written only once, non-volatile, used for firmware and specialized applications.
+
+2) Read-mostly Memory, which includes:  
+   • EPROM: Can be erased and rewritten using UV light; requires complete erasure each time.  
+   • EEPROM: Can be erased and rewritten electrically; allows byte-by-byte modification.  
+   • Flash Memory: Erases data in blocks; commonly used in USB drives and SSDs.</div>
+        </li>
+        <li>
+          <div class="question">14. What is cache memory, and how does it improve system performance?</div>
+          <div class="answer">Cache is a small high-speed memory designed to store frequently accessed data from main memory (RAM). It acts as a bridge between the fast processor and slower main memory, thus improving overall system speed.
+
+14.1 How it works:  
+1. The CPU requests data and first checks the cache.  
+   A) (Cache hit): If the data is in the cache, it retrieves it quickly.  
+   B) (Cache miss): If the data isn’t in the cache, a block of memory is fetched from RAM and stored in the cache for future access.
+
+14.2 Key benefits:  
+• Faster access time  
+• Reduced latency  
+• Improved overall system performance by minimizing memory fetch operations</div>
+        </li>
+        <li>
+          <div class="question">15. What is virtual memory, and how does it differ from cache memory?</div>
+          <div class="answer">Virtual memory is a system that allows programs to use more memory than is physically available by using disk storage as an extension of RAM.
+
+15.1 How it works:  
+1) The Memory Management Unit (MMU) translates virtual addresses into physical addresses in RAM.  
+2) If the data isn’t in RAM, it is loaded from disk storage.  
+3) Virtual memory enables large programs to run on systems with limited RAM.
+
+15.2 Virtual cache vs. Physical cache:  
+• Physical Cache (P):  
+   - Stores data in caches (L1, L2, L3) close to the CPU for very fast (nanosecond) access.  
+• Virtual Memory (V):  
+   - Uses part of HDD/SSD to extend RAM capacity; access speeds are much slower (milliseconds).  
+• Managed by:  
+   - P: Cache Controller  
+   - V: OS & MMU</div>
+        </li>
+        <li>
+          <div class="question">16. How does Cache size impact performance? and why there are no single 'Optimum' cache size?</div>
+          <div class="answer">Cache size plays a crucial role in balancing speed, cost, and efficiency.
+
+Effects on performance:  
+1) Small cache:  
+   - Simpler design, faster access time, lower cost per bit, but higher miss rate (leading to more accesses to slower main memory).
+
+2) Large cache:  
+   - Can store more data reducing cache misses, but may have slightly slower access due to increased complexity and higher cost.
+
+There’s no single 'optimum' cache size because the ideal size depends on the workload type and application requirements.</div>
+        </li>
+        <li>
+          <div class="question">17. What are the three cache mapping techniques, and how do they work?</div>
+          <div class="answer">Cache mapping determines how main memory blocks are assigned to cache lines.
+
+17.1 Mapping techniques:
+1) Direct Mapping:  
+   - Each memory block is assigned to a specific cache line.  
+   - Fast and simple but can lead to collisions if multiple blocks map to the same line.
+   - Example: A new block might overwrite an existing one if the slot is full.
+
+2) Associative Mapping:  
+   - A memory block can be placed in any available cache line.  
+   - More flexible and reduces collisions but requires a more complex search mechanism, making it slower and more expensive.
+
+3) Set-Associative Mapping:  
+   - A hybrid of direct and associative mapping.  
+   - The cache is divided into sets, and each block can be placed anywhere within a set.
+   - Balances speed and flexibility while reducing collisions.</div>
+        </li>
+        <li>
+          <div class="question">18. What are cache replacement algorithms, and how do they work?</div>
+          <div class="answer">When the cache is full and a new block needs to be loaded, the system decides which existing block to replace using cache replacement algorithms.
+
+1) Least Recently Used (LRU):  
+   - Replaces the block that hasn’t been used for the longest period, assuming that recently used data is more likely to be used again.
+
+2) First-In-First-Out (FIFO):  
+   - Replaces the oldest block in the cache (the first loaded is the first removed).  
+   - Simple to implement but does not consider usage frequency.
+
+3) Least Frequently Used (LFU):  
+   - Replaces the block that has been used the least number of times, based on the assumption that infrequently used data is less important.
+
+4) Random Replacement:  
+   - Randomly selects a block to replace.  
+   - Fastest but inefficient as it does not consider access patterns.</div>
+        </li>
+        <li>
+          <div class="question">19. What are cache write policies, and how do they impact performance?</div>
+          <div class="answer">Cache write policies determine how modifications by the CPU are handled between the cache and main memory.
+
+1) Write-Through:  
+   - Every write operation updates both the cache and main memory, ensuring data consistency.  
+   - Slower because every write requires access to main memory.  
+   - Commonly used in critical applications where data integrity is a priority.
+
+2) Write-Back:  
+   - The CPU writes only to the cache and later updates the main memory.  
+   - Uses a “dirty bit” to mark modified cache blocks, which are written back only when replaced.  
+   - Faster due to fewer memory write operations, but if a system crashes before writing back, data loss can occur.</div>
+        </li>
+        <li>
+          <div class="question">20. What is cache line size, and how does it affect performance?</div>
+          <div class="answer">Cache line size is the amount of data retrieved from main memory and stored in cache at once. Instead of fetching just one word, the system loads multiple adjacent words to take advantage of spatial locality.
+
+Effects on performance:
+1) Smaller line size:  
+   - Retrieves only the needed data, reducing wasted space.  
+   - May lead to a lower hit ratio if future requests require adjacent data.
+
+2) Larger line size:  
+   - Increases the cache hit ratio since adjacent data is likely to be used.  
+   - Improves performance by reducing memory accesses but might waste space if unused data is loaded.</div>
+        </li>
+        <li>
+          <div class="question">21. What are the different levels of cache memory, and how do they improve performance?</div>
+          <div class="answer">Cache memory can be classified as single-level (L1) or multiple levels (L1, L2, L3).
+
+1) Single Cache (L1):  
+   - An early cache system with only one level of cache.  
+   - On-chip (internal) cache located inside the CPU for fast access; very small but extremely fast.
+
+2) Multiple Cache (L1, L2, L3):  
+   - Modern CPUs use multiple levels.  
+   - If data is not found in L1, the CPU checks L2 (secondary cache), which is larger but slower.  
+   - Some systems have an L3 cache, which is even larger and slower.</div>
+        </li>
+        <li>
+          <div class="question">22. What is the difference between a unified cache and a split cache, and how do they impact performance?</div>
+          <div class="answer">1) Unified Cache:  
+   - Stores both instructions and data in a single cache.  
+   - Flexible because it dynamically shares space between instructions and data.  
+   - Simpler design but may lead to contention when both are needed simultaneously.
+
+2) Split Cache:  
+   - Divided into two separate units:  
+      • I-cache: stores instructions  
+      • D-cache: stores data  
+   - Allows simultaneous fetching of instructions and data, leading to faster execution.  
+   - More complex in design and requires a larger cache space.</div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="question-group">
+      <h2>Structured Concepts</h2>
+      
+      <h3>1. Pipelining</h3>
+      <ul>
+        <li>Types</li>
+        <li>Stages</li>
+        <li>Hazard types and solutions</li>
+        <li>Pros/Cons</li>
+      </ul>
+
+      <h3>2. Key Definitions</h3>
+      <ul>
+        <li>Clock cycle</li>
+        <li>Latency</li>
+        <li>CPI (Cycles Per Instruction)</li>
+        <li>Throughput</li>
+        <li>CPU Cycle</li>
+      </ul>
+
+      <h3>3. Memory Access Methods</h3>
+      <ul>
+        <li>Sequential</li>
+        <li>Direct</li>
+        <li>Random</li>
+        <li>Associative</li>
+      </ul>
+
+      <h3>4. Memory Performance</h3>
+      <ul>
+        <li>Access time</li>
+        <li>Memory Cycle time</li>
+        <li>Transfer Rate</li>
+      </ul>
+
+      <h3>5. Memory Types</h3>
+      <ul>
+        <li>RAM: SRAM vs DRAM</li>
+        <li>ROM: PROM, EPROM, EEPROM, Flash</li>
+      </ul>
+
+      <h3>6. Cache Memory Architecture</h3>
+      <ul>
+        <li>Address mapping (Physical &amp; Logical)</li>
+        <li>Size considerations</li>
+        <li>Mapping techniques (Direct, Associative, Set-Associative)</li>
+        <li>Replacement algorithms (LRU, FIFO, LFU, Random)</li>
+        <li>Write policies (Write-through vs Write-Back)</li>
+        <li>Line size effects</li>
+        <li>Cache hierarchy (L1, L2, L3)</li>
+        <li>Unified vs Split caches</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    // Add event listeners to all question elements within the comprehensive questions list
+    document.querySelectorAll('.question-list li').forEach(function(item) {
+      item.addEventListener('click', function(e) {
+        // Avoid toggling when clicking inside the answer block itself
+        if(e.target.classList.contains('answer')) return;
+        const answerDiv = this.querySelector('.answer');
+        if(answerDiv) {
+          // Toggle display property
+          answerDiv.style.display = answerDiv.style.display === 'none' || answerDiv.style.display === '' ? 'block' : 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
